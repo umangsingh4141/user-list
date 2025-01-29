@@ -2,23 +2,23 @@
 <h2>User List</h2>
 <!-- Toggle Login Status -->
 <button (click)="isLoggedIn = !isLoggedIn">
-    {{ isLoggedIn ? 'Logout' : 'Login'}} 
-    Toggle Login
+    {{ isLoggedIn ? 'Logout' : 'Login' }}
 </button>
 
-<!-- Show message on the based on Login Status -->
-
+<!-- Show message based on Login Status -->
 <p *ngIf="isLoggedIn; else notLoggedIn">
-    Welcome to the user list page!</p>
-<ng-template #guestMessage><p>Please Login</p></ng-template>
+    Welcome to the user list page!
+</p>
+<ng-template #notLoggedIn>
+    <p>Please Login</p>
+</ng-template>
 
-<!-- Display User List-->
-
+<!-- Display User List -->
 <ul>  
-    <li *ngFor="let user of users" [ngClass] = "user.role">
+    <li *ngFor="let user of users" [ngClass]="user.role">
         {{ user.name }} -
-        <span *ngIf = "user.role === 'admin'">Admin</span>
-        <span *ngIf = "user.role === 'user'">User</span>
-        <span *ngIf = "user.role === 'guest'">Guest</span>
+        <span *ngIf="user.role === 'admin'">Admin</span>
+        <span *ngIf="user.role === 'user'">User</span>
+        <span *ngIf="user.role === 'guest'">Guest</span>
     </li>
 </ul>

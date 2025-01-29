@@ -1,18 +1,19 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-user-list',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.css'
 })
 export class UserListComponent {
-users = [
-  {name: 'John Doe', role: 'Admin'},
-  {name: 'Jane Doe', role: 'User'},
-  {name: 'Jim Doe', role: 'SuperAdmin'},
-];
+  users = [
+    {name: 'John Doe', role: 'admin'},
+    {name: 'Jane Doe', role: 'user'},
+    {name: 'Jim Doe', role: 'admin'},
+  ];
 
-isLoggedIn = true;
-
+  isLoggedIn = true;
 }
